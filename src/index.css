@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light editorial theme — warm paper */
+    --background: 40 30% 97%;
+    --foreground: 218 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 218 35% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 35% 12%;
+
+    /* Deep teal — primary accent (legible on light) */
+    --primary: 178 80% 30%;
+    --primary-foreground: 40 30% 97%;
+
+    /* Warm amber — secondary accent */
+    --secondary: 25 85% 50%;
+    --secondary-foreground: 40 30% 97%;
+
+    --muted: 218 15% 92%;
+    --muted-foreground: 218 15% 40%;
+
+    --accent: 280 50% 45%;
+    --accent-foreground: 40 30% 97%;
+
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 218 15% 86%;
+    --input: 218 15% 86%;
+    --ring: 178 80% 30%;
+
+    --radius: 0.25rem;
+
+    --ink: 218 35% 12%;
+    --ink-dim: 218 15% 40%;
+    --ink-faint: 218 15% 60%;
+    --surface: 0 0% 100%;
+    --surface-elevated: 40 30% 99%;
+    --grid-line: 218 15% 90%;
+
+    --gradient-mint: linear-gradient(135deg, hsl(178 80% 30%), hsl(195 80% 40%));
+    --gradient-amber: linear-gradient(135deg, hsl(25 85% 50%), hsl(15 85% 55%));
+    --gradient-aurora: radial-gradient(ellipse at top, hsl(178 80% 40% / 0.10), transparent 60%),
+                       radial-gradient(ellipse at bottom right, hsl(280 50% 60% / 0.08), transparent 60%);
+
+    --shadow-glow: 0 0 40px hsl(178 80% 30% / 0.18);
+    --shadow-soft: 0 20px 60px -20px hsl(218 30% 30% / 0.18);
+    --shadow-card: 0 1px 0 hsl(218 35% 12% / 0.04) inset, 0 20px 40px -20px hsl(218 30% 30% / 0.15);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 218 35% 12%;
+    --sidebar-primary: 178 80% 30%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 218 15% 92%;
+    --sidebar-accent-foreground: 218 35% 12%;
+    --sidebar-border: 218 15% 86%;
+    --sidebar-ring: 178 80% 30%;
+  }
+
+  .dark {
+    /* Deep navy editorial dark theme */
+    --background: 218 45% 7%;
+    --foreground: 180 20% 92%;
+
+    --card: 218 40% 9%;
+    --card-foreground: 180 20% 92%;
+
+    --popover: 218 45% 8%;
+    --popover-foreground: 180 20% 92%;
+
+    --primary: 165 100% 70%;
+    --primary-foreground: 218 50% 8%;
+
+    --secondary: 35 90% 65%;
+    --secondary-foreground: 218 50% 8%;
+
+    --muted: 218 30% 14%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 280 60% 70%;
+    --accent-foreground: 218 50% 8%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 218 30% 16%;
+    --input: 218 30% 16%;
+    --ring: 165 100% 70%;
+
+    --ink: 180 20% 92%;
+    --ink-dim: 215 15% 60%;
+    --ink-faint: 215 15% 35%;
+    --surface: 218 40% 9%;
+    --surface-elevated: 218 35% 12%;
+    --grid-line: 218 30% 14%;
+
+    --gradient-mint: linear-gradient(135deg, hsl(165 100% 70%), hsl(180 90% 65%));
+    --gradient-amber: linear-gradient(135deg, hsl(35 90% 65%), hsl(15 85% 65%));
+    --gradient-aurora: radial-gradient(ellipse at top, hsl(165 100% 70% / 0.15), transparent 60%),
+                       radial-gradient(ellipse at bottom right, hsl(280 60% 70% / 0.1), transparent 60%);
+
+    --shadow-glow: 0 0 40px hsl(165 100% 70% / 0.25);
+    --shadow-soft: 0 20px 60px -20px hsl(218 60% 2% / 0.6);
+    --shadow-card: 0 1px 0 hsl(180 20% 92% / 0.04) inset, 0 20px 40px -20px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 218 45% 7%;
+    --sidebar-foreground: 180 20% 92%;
+    --sidebar-primary: 165 100% 70%;
+    --sidebar-primary-foreground: 218 50% 8%;
+    --sidebar-accent: 218 30% 14%;
+    --sidebar-accent-foreground: 180 20% 92%;
+    --sidebar-border: 218 30% 16%;
+    --sidebar-ring: 165 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(var(--primary) / 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(var(--accent) / 0.06), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--primary));
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-gradient-mint {
+    background: var(--gradient-mint);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .cursor-blink::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+    color: hsl(var(--primary));
+  }
+
+  .link-underline {
+    background-image: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--transition-smooth);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
