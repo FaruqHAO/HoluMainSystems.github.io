@@ -56,7 +56,7 @@ export const Hero = () => {
               <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed">
                 I architect & ship{" "}
                 <span className="text-primary font-medium">scalable backend systems</span>,
-                APIs and distributed apps. Six years across .NET, Azure and modern web —
+                APIs and distributed apps. five years across .NET, Azure and modern web —
                 from solo contributor to engineering lead.
               </p>
             </motion.div>
