@@ -110,14 +110,14 @@ export const Hero = () => {
                   Doha, Qatar
                 </div>
                 <div className="font-mono text-xs text-muted-foreground mt-1">
-                  Valid Work Visa & NOC
+                  Valid Work Visa 
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
-                <Stat value="6+" label="years building" />
+                <Stat value="5" label="years building" />
                 <Stat value="20+" label="systems shipped" />
-                <Stat value="500+" label="users authenticated" />
+                <Stat value="100+" label="users authenticated" />
                 <Stat value="60%" label="faster deploys" />
               </div>
             </div>
